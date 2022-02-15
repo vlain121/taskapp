@@ -31,10 +31,10 @@
 </template>
 
 <script lang="ts">
-import { IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
-import { defineComponent, ref } from 'vue';
-import { useRoute } from 'vue-router';
-import { archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue'
+import { defineComponent, ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons'
 
 export default defineComponent({
   name: 'App',
@@ -53,7 +53,7 @@ export default defineComponent({
     IonSplitPane,
   },
   setup() {
-    const selectedIndex = ref(0);
+    const selectedIndex = ref(0)
     const appPages = [
       {
         title: 'Inbox',
@@ -91,15 +91,15 @@ export default defineComponent({
         iosIcon: warningOutline,
         mdIcon: warningSharp
       }
-    ];
-    const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+    ]
+    const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders']
     
-    const path = window.location.pathname.split('folder/')[1];
+    const path = window.location.pathname.split('folder/')[1]
     if (path !== undefined) {
-      selectedIndex.value = appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
+      selectedIndex.value = appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase())
     }
     
-    const route = useRoute();
+    const route = useRoute()
     
     return { 
       selectedIndex,
@@ -122,7 +122,7 @@ export default defineComponent({
       isSelected: (url: string) => url === route.path ? 'selected' : ''
     }
   }
-});
+})
 </script>
 
 <style scoped>
