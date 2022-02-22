@@ -30,23 +30,6 @@
               </ion-item>
             </ion-menu-toggle>
           </ion-list>
-
-          <ion-list id="labels-list">
-            <ion-list-header>Labels</ion-list-header>
-
-            <ion-item
-              v-for="(label, index) in labels"
-              lines="none"
-              :key="index"
-            >
-              <ion-icon
-                slot="start"
-                :ios="bookmarkOutline"
-                :md="bookmarkSharp"
-              ></ion-icon>
-              <ion-label>{{ label }}</ion-label>
-            </ion-item>
-          </ion-list>
         </ion-content>
       </ion-menu>
       <ion-router-outlet id="main-content"></ion-router-outlet>
@@ -108,49 +91,11 @@ export default defineComponent({
     const selectedIndex = ref(0);
     const appPages = [
       {
-        title: "Inbox",
-        url: "/Inbox",
+        title: "Tasks",
+        url: "/all-tasks",
         iosIcon: mailOutline,
         mdIcon: mailSharp,
       },
-      {
-        title: "Outbox",
-        url: "/Outbox",
-        iosIcon: paperPlaneOutline,
-        mdIcon: paperPlaneSharp,
-      },
-      {
-        title: "Favorites",
-        url: "/Favorites",
-        iosIcon: heartOutline,
-        mdIcon: heartSharp,
-      },
-      {
-        title: "Archived",
-        url: "/Archived",
-        iosIcon: archiveOutline,
-        mdIcon: archiveSharp,
-      },
-      {
-        title: "Trash",
-        url: "/Trash",
-        iosIcon: trashOutline,
-        mdIcon: trashSharp,
-      },
-      {
-        title: "Spam",
-        url: "/Spam",
-        iosIcon: warningOutline,
-        mdIcon: warningSharp,
-      },
-    ];
-    const labels = [
-      "Family",
-      "Friends",
-      "Notes",
-      "Work",
-      "Travel",
-      "Reminders",
     ];
 
     const path = window.location.pathname.split("folder/")[1];
@@ -165,7 +110,6 @@ export default defineComponent({
     return {
       selectedIndex,
       appPages,
-      labels,
       archiveOutline,
       archiveSharp,
       bookmarkOutline,
