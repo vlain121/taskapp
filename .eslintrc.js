@@ -16,11 +16,13 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/no-deprecated-slot-attribute': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
-    'semi': [2, 'never'],
-    'quotes': ['error', 'single']
   },
   overrides: [
     {
+    rules: {
+        'semi': [2, 'never'],
+        'quotes': ['warn', 'single']
+    },
       files: [
         '**/__tests__/*.{j,t}s?(x)',
         '**/tests/unit/**/*.spec.{j,t}s?(x)'
